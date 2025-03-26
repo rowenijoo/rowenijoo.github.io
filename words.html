@@ -15,8 +15,29 @@
     </ul>
   </nav>
 
-  
+  <h1>Vocabulary list</h1>
   <ul id="word-list"></ul>
+
+ <script src="https://unpkg.com/tabletop@1.6.0/tabletop.js"></script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    Tabletop.init({
+      key: 'YOUR_GOOGLE_SHEET_KEY',
+      callback: showData,
+      simpleSheet: true
+    });
+  });
+
+  function showData(data) {
+    const list = document.getElementById('milestone-list');
+    data.forEach(row => {
+      const li = document.createElement('li');
+      li.textContent = `${row.Date}: ${row.Milestone}`;
+      list.appendChild(li);
+    });
+  }
+</script>
 
 </body>
 </html>
