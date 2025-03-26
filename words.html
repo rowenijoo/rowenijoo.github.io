@@ -33,7 +33,7 @@
     const list = document.getElementById('word-list');
     data.forEach(row => {
       const li = document.createElement('li');
-      li.textContent = `${row.English Word}: ${row.Korean Word}`;
+      li.textContent = `${row.English}: ${row.Korean}`;
       list.appendChild(li);
     });
   }
